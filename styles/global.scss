@@ -1,0 +1,287 @@
+@import "fonts";
+@import "variables";
+@import "home";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  color: $light;
+  font-size: 16px;
+  font-family: $sans-serif;
+  background-color: $dark;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $serif;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+.fade {
+  left: 0;
+  right: 0;
+  height: 60%;
+  position: absolute;
+
+  z-index: $fade-z;
+  background: $fade;
+
+  &__dark {
+    height: 100%;
+    background: $fade-darker;
+  }
+
+  &__top {
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+
+  &__bottom {
+    bottom: 0;
+  }
+
+  &__left {
+    top: 0;
+    left: 0;
+    background: $fade-horizontal;
+
+    &.fade__dark {
+      background: $fade-darker-horizontal;
+    }
+  }
+}
+
+.button {
+  height: 48px;
+  border-radius: 24px;
+
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-family: $sans-serif;
+
+  padding-left: 32px;
+  padding-right: 32px;
+
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  transition: 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    transform: scale(0.95);
+  }
+
+  &__primary {
+    color: $dark;
+    background-color: $light;
+  }
+
+  &__text {
+    color: $light;
+    letter-spacing: 1px;
+  }
+
+  &__secondary {
+    color: $light;
+    backdrop-filter: blur(4px);
+    background-color: rgba($light, 0.1);
+  }
+}
+
+.header {
+  top: 32px;
+  position: fixed;
+
+  width: 100%;
+  height: 48px;
+
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: $header-z;
+
+  &__menu {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: rgba($light, 0.1);
+
+    border: none;
+    outline: none;
+
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__lines {
+    height: 2px;
+    width: 20px;
+
+    display: block;
+    background-color: $light;
+
+    transition: 0.2s cubic-bezier(0.85, 0, 0.15, 1);
+
+    &-open {
+      &:first-child {
+        transform: rotateZ(45deg) translate(3px, 2.5px);
+      }
+      &:last-child {
+        transform: rotateZ(-45deg) translate(3px, -2.5px);
+      }
+    }
+  }
+
+  &__brand {
+    left: 50%;
+    position: absolute;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    transform: translateX(-50%);
+  }
+}
+
+.nav {
+  inset: 0;
+  display: flex;
+  position: fixed;
+
+  opacity: 0;
+  z-index: -1;
+
+  transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+
+  .fade__left {
+    left: -10px;
+  }
+
+  &__open {
+    opacity: 1;
+    transform: scale(1);
+    z-index: $header-z - 2;
+
+    .nav__content {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &__left {
+    width: 35%;
+    background-color: $dark;
+  }
+
+  &__right {
+    width: 65%;
+    position: relative;
+  }
+
+  &__content {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+
+    z-index: $header-z - 1;
+
+    transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+.footer {
+  width: 100%;
+  position: relative;
+  padding: 300px 0px 150px 0px;
+
+  &__background {
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 70%;
+    height: 700px;
+    position: absolute;
+  }
+
+  &__content {
+    z-index: 2;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__mail {
+    color: $light;
+    font-size: 48px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__copy {
+    margin-top: 96px;
+    margin-bottom: 8px;
+  }
+
+  &__link {
+    color: $light;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
