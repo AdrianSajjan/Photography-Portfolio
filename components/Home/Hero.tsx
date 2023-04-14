@@ -20,7 +20,7 @@ export default function Hero() {
           <UnderlinePattern className="hero__pattern" />
         </div>
         <p className="hero__description">
-          I'm a freelance photographer with a passion for capturing the essence of everyday life on the streets. Available for hire to
+          I&apos;m a freelance photographer with a passion for capturing the essence of everyday life on the streets. Available for hire to
           create unique and beautiful moments for your brand or business. Let's make magic together.
         </p>
         <button className="button button__primary">

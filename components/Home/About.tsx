@@ -34,10 +34,10 @@ export default function About() {
         </p>
         <p className="about__description">
           With my keen eye for detail and a deep understanding of the art and craft of street photography, I am confident that I can deliver
-          the results you are looking for. So why wait? Contact me today, and let's start creating something beautiful together.
+          the results you are looking for. So why wait? Contact me today, and let&apos;s start creating something beautiful together.
         </p>
         <p className="about__description">
-          So that's Antarip in a nutshell. If you want to learn more about me, take a peek around the rest of my site.
+          So that&apos;s Antarip in a nutshell. If you want to learn more about me, take a peek around the rest of my site.
         </p>
       </div>
       <div className="about__gallery">
