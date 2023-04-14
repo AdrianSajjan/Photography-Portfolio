@@ -16,13 +16,12 @@ export default function Hero() {
       <div />
       <motion.div className="hero__content" ref={ref} style={animatedStyle}>
         <div className="hero__wrapper">
-          <h1 className="hero__title">Through My Lens !</h1>
+          <h1 className="hero__title">Through My Lens!</h1>
           <UnderlinePattern className="hero__pattern" />
         </div>
         <p className="hero__description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, magni corporis eaque culpa hic debitis sunt earum amet deleniti
-          deserunt eos aperiam id error nemo sed at voluptatem eligendi provident. Deleniti deserunt eos aperiam id error nemo sed at
-          voluptatem eligendi provident.
+          I'm a freelance photographer with a passion for capturing the essence of everyday life on the streets. Available for hire to
+          create unique and beautiful moments for your brand or business. Let's make magic together.
         </p>
         <button className="button button__primary">
           <span>See My Portfolio</span>

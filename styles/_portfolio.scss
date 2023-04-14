@@ -1,0 +1,14 @@
+@import "variables";
+
+.portfolio {
+  min-height: 100vh;
+
+  max-width: 800px;
+  margin: 160px auto 0;
+
+  &__heading {
+    text-align: center;
+    font-weight: 500;
+    font-family: $sans-serif;
+  }
+}

@@ -1,6 +1,7 @@
 @import "fonts";
 @import "variables";
 @import "home";
+@import "portfolio";
 
 * {
   margin: 0;
@@ -12,9 +13,18 @@ html,
 body {
   color: $light;
   font-size: 16px;
+  overflow-x: hidden;
   font-family: $sans-serif;
   background-color: $dark;
   scroll-behavior: smooth;
+
+  @media screen and (max-width: $medium-screen) {
+    font-size: 15px;
+  }
+
+  @media screen and (max-width: $small-screen) {
+    font-size: 14px;
+  }
 }
 
 h1,
@@ -37,6 +47,14 @@ h6 {
 
   margin: 0 auto;
   padding: 0 $container-padding;
+
+  @media screen and (max-width: $medium-screen) {
+    padding: 0 $container-padding-medium;
+  }
+
+  @media screen and (max-width: $small-screen) {
+    padding: 0 $container-padding-small;
+  }
 }
 
 .fade {
@@ -138,6 +156,17 @@ h6 {
 
   z-index: $header-z;
 
+  @media screen and (max-width: $medium-screen) {
+    top: 24px;
+    flex-direction: row-reverse;
+    padding-left: $container-padding-small;
+    padding-right: $container-padding-small;
+  }
+
+  @media screen and (max-width: $small-screen) {
+    top: 16px;
+  }
+
   &__menu {
     width: 48px;
     height: 48px;
@@ -189,6 +218,18 @@ h6 {
     font-weight: bold;
 
     transform: translateX(-50%);
+
+    @media screen and (max-width: $medium-screen) {
+      left: 0;
+      position: relative;
+      transform: none;
+    }
+  }
+
+  &__button {
+    @media screen and (max-width: $medium-screen) {
+      display: none;
+    }
   }
 }
 
@@ -231,10 +272,30 @@ h6 {
     left: 50%;
     position: absolute;
 
+    gap: 64px;
+    display: flex;
+
+    @media screen and (max-width: $small-screen) {
+      flex-direction: column;
+      text-align: center;
+    }
+
     z-index: $header-z - 1;
 
     transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1);
     transform: translate(-50%, -50%) scale(1.5);
+  }
+
+  &__link {
+    color: $light;
+    font-size: 36px;
+    font-family: $serif;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -268,6 +329,14 @@ h6 {
 
     &:hover {
       text-decoration: underline;
+    }
+
+    @media screen and (max-width: $medium-screen) {
+      font-size: 36px;
+    }
+
+    @media screen and (max-width: $small-screen) {
+      font-size: 24px;
     }
   }
 

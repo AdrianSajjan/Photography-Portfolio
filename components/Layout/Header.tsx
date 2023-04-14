@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { Fragment, useMemo, useState } from "react";
 
 export default function Header() {
@@ -7,6 +8,10 @@ export default function Header() {
 
   const handleMenuPress = () => {
     setNavOpen((state) => !state);
+  };
+
+  const handleMenuClose = () => {
+    setNavOpen(false);
   };
 
   const navClassList = useMemo(() => (isNavOpen ? "nav nav__open" : "nav"), [isNavOpen]);
@@ -21,7 +26,7 @@ export default function Header() {
           <motion.span className={menuClassList} />
         </button>
         <h3 className="header__brand">Antarip Kabiraj</h3>
-        <button className="button button__secondary">Get In Touch</button>
+        <button className="button button__secondary header__button">Get In Touch</button>
       </header>
       <nav className={navClassList}>
         <div className="nav__left" />
@@ -30,7 +35,23 @@ export default function Header() {
           <div className="fade fade__left fade__dark" />
           <Image src="/static/images/lake-1.jpg" alt="lake" layout="fill" objectFit="cover" />
         </div>
-        <div className="nav__content"></div>
+        <div className="nav__content">
+          <Link href="/" passHref>
+            <a onClick={handleMenuClose} className="nav__link">
+              Home
+            </a>
+          </Link>
+          <Link href="/#about">
+            <a onClick={handleMenuClose} className="nav__link">
+              About
+            </a>
+          </Link>
+          <Link href="/portfolio">
+            <a onClick={handleMenuClose} className="nav__link">
+              Portfolio
+            </a>
+          </Link>
+        </div>
       </nav>
     </Fragment>
   );

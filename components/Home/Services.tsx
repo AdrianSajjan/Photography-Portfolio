@@ -3,24 +3,32 @@ import { motion, useAnimation, Variants } from "framer-motion";
 import { BsArrowDown, BsArrowRight, BsArrowUpRight } from "react-icons/bs";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 
 const servicesEven: Variants = {
   visible: { opacity: 1, scale: 1, y: -50, transition: { duration: 1, y: { duration: 1, delay: 1.5 } } },
   hidden: { opacity: 0, scale: 0 },
+  mobile: { opacity: 1, scale: 1, y: 0, transition: { duration: 1, y: { duration: 0, delay: 0 } } },
 };
 
 const servicesOdd: Variants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
   hidden: { opacity: 0, scale: 0 },
+  mobile: { opacity: 1, scale: 1, transition: { duration: 0 } },
 };
 
 export default function Services() {
   const serviceControls = useAnimation();
   const [servicesRef, isServicesInView] = useInView();
 
+  const isMobile = useMediaQuery(`(max-width: 576px)`);
+
   useEffect(() => {
-    if (isServicesInView) serviceControls.start("visible");
-  }, [isServicesInView, serviceControls]);
+    if (isServicesInView) {
+      if (isMobile) serviceControls.start("mobile");
+      else serviceControls.start("visible");
+    }
+  }, [isServicesInView, serviceControls, isMobile]);
 
   return (
     <section id="services" className="services">
