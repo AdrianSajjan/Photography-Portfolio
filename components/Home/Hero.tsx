@@ -21,7 +21,7 @@ export default function Hero() {
         </div>
         <p className="hero__description">
           I&apos;m a freelance photographer with a passion for capturing the essence of everyday life on the streets. Available for hire to
-          create unique and beautiful moments for your brand or business. Let's make magic together.
+          create unique and beautiful moments for your brand or business. Let&apos;s make magic together.
         </p>
         <button className="button button__primary">
           <span>See My Portfolio</span>
